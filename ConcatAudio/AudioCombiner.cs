@@ -40,7 +40,10 @@ public class AudioCombiner
     {
         var dirInfo = new DirectoryInfo(input.InputFolderPath);
         var extensions = new[] { "*.mp3", "*.wav" };
-        var files = extensions.SelectMany(ext => dirInfo.GetFiles(ext)).OrderByDescending(f => f.Length).ToArray();
+        var files = extensions
+            .SelectMany(ext => dirInfo.GetFiles(ext, input.Recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+            .OrderByDescending(f => f.Length)
+            .ToArray();
         var totalSize = files.Sum(f => f.Length);
 
         if (totalSize <= TargetFileSize)
