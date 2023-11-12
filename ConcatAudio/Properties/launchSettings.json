@@ -1,0 +1,9 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ConcatAudio - Debug [launchSettings.json]": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\test\\input\\ test-output.wav"
+    }
+  }
+}
